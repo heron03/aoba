@@ -9,15 +9,12 @@ use Cake\ORM\Entity;
  * Usuario Entity
  *
  * @property int $id_usuarios
- * @property int|null $aro_id
  * @property string|null $nome
  * @property string|null $email
  * @property string|null $senha
  *
- * @property \App\Model\Entity\Aro $aro
- * @property \App\Model\Entity\Endereco[] $endereco
- * @property \App\Model\Entity\Telefone[] $telefone
- * @property \App\Model\Entity\Loja[] $lojas
+ * @property \App\Model\Entity\Endereco[] $enderecos
+ * @property \App\Model\Entity\Telefone[] $telefones
  */
 class Usuario extends Entity
 {
@@ -31,13 +28,10 @@ class Usuario extends Entity
      * @var array
      */
     protected $_accessible = [
-        'aro_id' => true,
         'nome' => true,
         'email' => true,
         'senha' => true,
-        'aro' => true,
-        'endereco' => true,
-        'telefone' => true,
-        'lojas' => true,
+        'enderecos' => true,
+        'telefones' => true,
     ];
 }

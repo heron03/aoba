@@ -11,11 +11,10 @@ use Cake\Validation\Validator;
 /**
  * Lojas Model
  *
- * @property \App\Model\Table\EnderecoTable&\Cake\ORM\Association\BelongsTo $Endereco
- * @property \App\Model\Table\EnderecoTable&\Cake\ORM\Association\HasMany $Endereco
+ * @property \App\Model\Table\EnderecosTable&\Cake\ORM\Association\BelongsTo $Enderecos
+ * @property \App\Model\Table\EnderecosTable&\Cake\ORM\Association\HasMany $Enderecos
  * @property \App\Model\Table\ProdutosTable&\Cake\ORM\Association\HasMany $Produtos
- * @property \App\Model\Table\TelefoneTable&\Cake\ORM\Association\HasMany $Telefone
- * @property \App\Model\Table\UsuariosTable&\Cake\ORM\Association\BelongsToMany $Usuarios
+ * @property \App\Model\Table\TelefonesTable&\Cake\ORM\Association\HasMany $Telefones
  *
  * @method \App\Model\Entity\Loja newEmptyEntity()
  * @method \App\Model\Entity\Loja newEntity(array $data, array $options = [])
@@ -47,22 +46,17 @@ class LojasTable extends Table
         $this->setDisplayField('id_loja');
         $this->setPrimaryKey('id_loja');
 
-        $this->belongsTo('Endereco', [
+        $this->belongsTo('Enderecos', [
             'foreignKey' => 'endereco_id',
         ]);
-        $this->hasMany('Endereco', [
+        $this->hasMany('Enderecos', [
             'foreignKey' => 'loja_id',
         ]);
         $this->hasMany('Produtos', [
             'foreignKey' => 'loja_id',
         ]);
-        $this->hasMany('Telefone', [
+        $this->hasMany('Telefones', [
             'foreignKey' => 'loja_id',
-        ]);
-        $this->belongsToMany('Usuarios', [
-            'foreignKey' => 'loja_id',
-            'targetForeignKey' => 'usuario_id',
-            'joinTable' => 'usuarios_lojas',
         ]);
     }
 
@@ -109,7 +103,7 @@ class LojasTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['endereco_id'], 'Endereco'), ['errorField' => 'endereco_id']);
+        $rules->add($rules->existsIn(['endereco_id'], 'Enderecos'), ['errorField' => 'endereco_id']);
 
         return $rules;
     }

@@ -93,7 +93,7 @@ class AppController extends Controller
         $this->Flash->bootstrap('Excluído com sucesso!', array('key' => 'warning'));
         $this->redirect(['action' => 'index']);
     }
-    
+
     public function getControllerName() {
         return \Cake\Utility\Inflector::underscore($this->request->getParam('controller'));
     }

@@ -23,11 +23,8 @@ class UsuariosControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Usuarios',
-        'app.Aros',
-        'app.Endereco',
-        'app.Telefone',
-        'app.Lojas',
-        'app.UsuariosLojas',
+        'app.Enderecos',
+        'app.Telefones',
     ];
 
     /**

@@ -44,39 +44,8 @@
                 </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Usuarios') ?></h4>
-                <?php if (!empty($loja->usuarios)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id Usuarios') ?></th>
-                            <th><?= __('Aro Id') ?></th>
-                            <th><?= __('Nome') ?></th>
-                            <th><?= __('Email') ?></th>
-                            <th><?= __('Senha') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($loja->usuarios as $usuarios) : ?>
-                        <tr>
-                            <td><?= h($usuarios->id_usuarios) ?></td>
-                            <td><?= h($usuarios->aro_id) ?></td>
-                            <td><?= h($usuarios->nome) ?></td>
-                            <td><?= h($usuarios->email) ?></td>
-                            <td><?= h($usuarios->senha) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Usuarios', 'action' => 'view', $usuarios->id_usuarios]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Usuarios', 'action' => 'edit', $usuarios->id_usuarios]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Usuarios', 'action' => 'delete', $usuarios->id_usuarios], ['confirm' => __('Are you sure you want to delete # {0}?', $usuarios->id_usuarios)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="related">
-                <h4><?= __('Related Endereco') ?></h4>
-                <?php if (!empty($loja->endereco)) : ?>
+                <h4><?= __('Related Enderecos') ?></h4>
+                <?php if (!empty($loja->enderecos)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
@@ -91,21 +60,21 @@
                             <th><?= __('Estado Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
-                        <?php foreach ($loja->endereco as $endereco) : ?>
+                        <?php foreach ($loja->enderecos as $enderecos) : ?>
                         <tr>
-                            <td><?= h($endereco->id_endereco) ?></td>
-                            <td><?= h($endereco->lougradouro) ?></td>
-                            <td><?= h($endereco->cep) ?></td>
-                            <td><?= h($endereco->numero) ?></td>
-                            <td><?= h($endereco->cidade) ?></td>
-                            <td><?= h($endereco->bairro) ?></td>
-                            <td><?= h($endereco->loja_id) ?></td>
-                            <td><?= h($endereco->usuario_id) ?></td>
-                            <td><?= h($endereco->estado_id) ?></td>
+                            <td><?= h($enderecos->id_endereco) ?></td>
+                            <td><?= h($enderecos->lougradouro) ?></td>
+                            <td><?= h($enderecos->cep) ?></td>
+                            <td><?= h($enderecos->numero) ?></td>
+                            <td><?= h($enderecos->cidade) ?></td>
+                            <td><?= h($enderecos->bairro) ?></td>
+                            <td><?= h($enderecos->loja_id) ?></td>
+                            <td><?= h($enderecos->usuario_id) ?></td>
+                            <td><?= h($enderecos->estado_id) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Endereco', 'action' => 'view', $endereco->id_endereco]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Endereco', 'action' => 'edit', $endereco->id_endereco]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Endereco', 'action' => 'delete', $endereco->id_endereco], ['confirm' => __('Are you sure you want to delete # {0}?', $endereco->id_endereco)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'Enderecos', 'action' => 'view', $enderecos->id_endereco]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Enderecos', 'action' => 'edit', $enderecos->id_endereco]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Enderecos', 'action' => 'delete', $enderecos->id_endereco], ['confirm' => __('Are you sure you want to delete # {0}?', $enderecos->id_endereco)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -147,8 +116,8 @@
                 <?php endif; ?>
             </div>
             <div class="related">
-                <h4><?= __('Related Telefone') ?></h4>
-                <?php if (!empty($loja->telefone)) : ?>
+                <h4><?= __('Related Telefones') ?></h4>
+                <?php if (!empty($loja->telefones)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
@@ -158,16 +127,16 @@
                             <th><?= __('Usuario Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
-                        <?php foreach ($loja->telefone as $telefone) : ?>
+                        <?php foreach ($loja->telefones as $telefones) : ?>
                         <tr>
-                            <td><?= h($telefone->id_telefone) ?></td>
-                            <td><?= h($telefone->numero) ?></td>
-                            <td><?= h($telefone->loja_id) ?></td>
-                            <td><?= h($telefone->usuario_id) ?></td>
+                            <td><?= h($telefones->id_telefone) ?></td>
+                            <td><?= h($telefones->numero) ?></td>
+                            <td><?= h($telefones->loja_id) ?></td>
+                            <td><?= h($telefones->usuario_id) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Telefone', 'action' => 'view', $telefone->id_telefone]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Telefone', 'action' => 'edit', $telefone->id_telefone]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Telefone', 'action' => 'delete', $telefone->id_telefone], ['confirm' => __('Are you sure you want to delete # {0}?', $telefone->id_telefone)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'Telefones', 'action' => 'view', $telefones->id_telefone]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Telefones', 'action' => 'edit', $telefones->id_telefone]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Telefones', 'action' => 'delete', $telefones->id_telefone], ['confirm' => __('Are you sure you want to delete # {0}?', $telefones->id_telefone)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

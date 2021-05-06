@@ -27,7 +27,6 @@
                     echo $this->Form->control('endereco_id');
                     echo $this->Form->control('site');
                     echo $this->Form->control('email');
-                    echo $this->Form->control('usuarios._ids', ['options' => $usuarios]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

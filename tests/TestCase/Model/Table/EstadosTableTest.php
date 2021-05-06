@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LojasTable;
+use App\Model\Table\EstadosTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LojasTable Test Case
+ * App\Model\Table\EstadosTable Test Case
  */
-class LojasTableTest extends TestCase
+class EstadosTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LojasTable
+     * @var \App\Model\Table\EstadosTable
      */
-    protected $Lojas;
+    protected $Estados;
 
     /**
      * Fixtures
@@ -24,10 +24,8 @@ class LojasTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Lojas',
+        'app.Estados',
         'app.Enderecos',
-        'app.Produtos',
-        'app.Telefones',
     ];
 
     /**
@@ -38,8 +36,8 @@ class LojasTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Lojas') ? [] : ['className' => LojasTable::class];
-        $this->Lojas = $this->getTableLocator()->get('Lojas', $config);
+        $config = $this->getTableLocator()->exists('Estados') ? [] : ['className' => EstadosTable::class];
+        $this->Estados = $this->getTableLocator()->get('Estados', $config);
     }
 
     /**
@@ -49,7 +47,7 @@ class LojasTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Lojas);
+        unset($this->Estados);
 
         parent::tearDown();
     }
@@ -60,16 +58,6 @@ class LojasTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -17,11 +17,9 @@
             <fieldset>
                 <legend><?= __('Add Usuario') ?></legend>
                 <?php
-                    echo $this->Form->control('aro_id');
                     echo $this->Form->control('nome');
                     echo $this->Form->control('email');
                     echo $this->Form->control('senha');
-                    echo $this->Form->control('lojas._ids', ['options' => $lojas]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -12,7 +12,6 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id_usuarios') ?></th>
-                    <th><?= $this->Paginator->sort('aro_id') ?></th>
                     <th><?= $this->Paginator->sort('nome') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('senha') ?></th>
@@ -23,7 +22,6 @@
                 <?php foreach ($usuarios as $usuario): ?>
                 <tr>
                     <td><?= $this->Number->format($usuario->id_usuarios) ?></td>
-                    <td><?= $this->Number->format($usuario->aro_id) ?></td>
                     <td><?= h($usuario->nome) ?></td>
                     <td><?= h($usuario->email) ?></td>
                     <td><?= h($usuario->senha) ?></td>

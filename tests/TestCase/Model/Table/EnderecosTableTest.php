@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LojasTable;
+use App\Model\Table\EnderecosTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LojasTable Test Case
+ * App\Model\Table\EnderecosTable Test Case
  */
-class LojasTableTest extends TestCase
+class EnderecosTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LojasTable
+     * @var \App\Model\Table\EnderecosTable
      */
-    protected $Lojas;
+    protected $Enderecos;
 
     /**
      * Fixtures
@@ -24,10 +24,10 @@ class LojasTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Lojas',
         'app.Enderecos',
-        'app.Produtos',
-        'app.Telefones',
+        'app.Lojas',
+        'app.Usuarios',
+        'app.Estados',
     ];
 
     /**
@@ -38,8 +38,8 @@ class LojasTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Lojas') ? [] : ['className' => LojasTable::class];
-        $this->Lojas = $this->getTableLocator()->get('Lojas', $config);
+        $config = $this->getTableLocator()->exists('Enderecos') ? [] : ['className' => EnderecosTable::class];
+        $this->Enderecos = $this->getTableLocator()->get('Enderecos', $config);
     }
 
     /**
@@ -49,7 +49,7 @@ class LojasTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Lojas);
+        unset($this->Enderecos);
 
         parent::tearDown();
     }

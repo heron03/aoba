@@ -18,9 +18,6 @@ class UsuariosController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Aros'],
-        ];
         $usuarios = $this->paginate($this->Usuarios);
 
         $this->set(compact('usuarios'));
@@ -36,7 +33,7 @@ class UsuariosController extends AppController
     public function view($id = null)
     {
         $usuario = $this->Usuarios->get($id, [
-            'contain' => ['Aros', 'Lojas', 'Endereco', 'Telefone'],
+            'contain' => ['Enderecos', 'Telefones'],
         ]);
 
         $this->set(compact('usuario'));
@@ -59,9 +56,7 @@ class UsuariosController extends AppController
             }
             $this->Flash->error(__('The usuario could not be saved. Please, try again.'));
         }
-        $aros = $this->Usuarios->Aros->find('list', ['limit' => 200]);
-        $lojas = $this->Usuarios->Lojas->find('list', ['limit' => 200]);
-        $this->set(compact('usuario', 'aros', 'lojas'));
+        $this->set(compact('usuario'));
     }
 
     /**
@@ -74,7 +69,7 @@ class UsuariosController extends AppController
     public function edit($id = null)
     {
         $usuario = $this->Usuarios->get($id, [
-            'contain' => ['Lojas'],
+            'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $usuario = $this->Usuarios->patchEntity($usuario, $this->request->getData());
@@ -85,9 +80,7 @@ class UsuariosController extends AppController
             }
             $this->Flash->error(__('The usuario could not be saved. Please, try again.'));
         }
-        $aros = $this->Usuarios->Aros->find('list', ['limit' => 200]);
-        $lojas = $this->Usuarios->Lojas->find('list', ['limit' => 200]);
-        $this->set(compact('usuario', 'aros', 'lojas'));
+        $this->set(compact('usuario'));
     }
 
     /**

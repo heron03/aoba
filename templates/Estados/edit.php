@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Usuario $usuario
+ * @var \App\Model\Entity\Estado $estado
  */
 ?>
 <div class="row">
@@ -10,21 +10,19 @@
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $usuario->id_usuarios],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $usuario->id_usuarios), 'class' => 'side-nav-item']
+                ['action' => 'delete', $estado->id_estado],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $estado->id_estado), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Usuarios'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Estados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
-        <div class="usuarios form content">
-            <?= $this->Form->create($usuario) ?>
+        <div class="estados form content">
+            <?= $this->Form->create($estado) ?>
             <fieldset>
-                <legend><?= __('Edit Usuario') ?></legend>
+                <legend><?= __('Edit Estado') ?></legend>
                 <?php
                     echo $this->Form->control('nome');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('senha');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

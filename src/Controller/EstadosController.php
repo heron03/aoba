@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 /**
- * Lojas Controller
+ * Estados Controller
  *
- * @property \App\Model\Table\LojasTable $Lojas
- * @method \App\Model\Entity\Loja[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\EstadosTable $Estados
+ * @method \App\Model\Entity\Estado[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class LojasController extends AppController
+class EstadosController extends AppController
 {
     /**
      * Index method
@@ -18,25 +18,25 @@ class LojasController extends AppController
      */
     public function index()
     {
-        $lojas = $this->paginate($this->Lojas);
+        $estados = $this->paginate($this->Estados);
 
-        $this->set(compact('lojas'));
+        $this->set(compact('estados'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Loja id.
+     * @param string|null $id Estado id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $loja = $this->Lojas->get($id, [
-            'contain' => ['Enderecos', 'Produtos', 'Telefones'],
+        $estado = $this->Estados->get($id, [
+            'contain' => ['Enderecos'],
         ]);
 
-        $this->set(compact('loja'));
+        $this->set(compact('estado'));
     }
 
     /**
@@ -46,58 +46,58 @@ class LojasController extends AppController
      */
     public function add()
     {
-        $loja = $this->Lojas->newEmptyEntity();
+        $estado = $this->Estados->newEmptyEntity();
         if ($this->request->is('post')) {
-            $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
-            if ($this->Lojas->save($loja)) {
-                $this->Flash->success(__('The loja has been saved.'));
+            $estado = $this->Estados->patchEntity($estado, $this->request->getData());
+            if ($this->Estados->save($estado)) {
+                $this->Flash->success(__('The estado has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The loja could not be saved. Please, try again.'));
+            $this->Flash->error(__('The estado could not be saved. Please, try again.'));
         }
-        $this->set(compact('loja'));
+        $this->set(compact('estado'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Loja id.
+     * @param string|null $id Estado id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $loja = $this->Lojas->get($id, [
+        $estado = $this->Estados->get($id, [
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
-            if ($this->Lojas->save($loja)) {
-                $this->Flash->success(__('The loja has been saved.'));
+            $estado = $this->Estados->patchEntity($estado, $this->request->getData());
+            if ($this->Estados->save($estado)) {
+                $this->Flash->success(__('The estado has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The loja could not be saved. Please, try again.'));
+            $this->Flash->error(__('The estado could not be saved. Please, try again.'));
         }
-        $this->set(compact('loja'));
+        $this->set(compact('estado'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Loja id.
+     * @param string|null $id Estado id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $loja = $this->Lojas->get($id);
-        if ($this->Lojas->delete($loja)) {
-            $this->Flash->success(__('The loja has been deleted.'));
+        $estado = $this->Estados->get($id);
+        if ($this->Estados->delete($estado)) {
+            $this->Flash->success(__('The estado has been deleted.'));
         } else {
-            $this->Flash->error(__('The loja could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The estado could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

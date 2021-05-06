@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LojasTable;
+use App\Model\Table\TelefonesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LojasTable Test Case
+ * App\Model\Table\TelefonesTable Test Case
  */
-class LojasTableTest extends TestCase
+class TelefonesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LojasTable
+     * @var \App\Model\Table\TelefonesTable
      */
-    protected $Lojas;
+    protected $Telefones;
 
     /**
      * Fixtures
@@ -24,10 +24,9 @@ class LojasTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Lojas',
-        'app.Enderecos',
-        'app.Produtos',
         'app.Telefones',
+        'app.Lojas',
+        'app.Usuarios',
     ];
 
     /**
@@ -38,8 +37,8 @@ class LojasTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Lojas') ? [] : ['className' => LojasTable::class];
-        $this->Lojas = $this->getTableLocator()->get('Lojas', $config);
+        $config = $this->getTableLocator()->exists('Telefones') ? [] : ['className' => TelefonesTable::class];
+        $this->Telefones = $this->getTableLocator()->get('Telefones', $config);
     }
 
     /**
@@ -49,7 +48,7 @@ class LojasTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Lojas);
+        unset($this->Telefones);
 
         parent::tearDown();
     }
