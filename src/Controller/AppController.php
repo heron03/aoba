@@ -43,8 +43,8 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->viewBuilder()->setLayout('bootstrap');
-        $this->viewBuilder()->setHelpers(['Js']); 
+        // $this->viewBuilder()->setLayout('bootstrap');
+        // $this->viewBuilder()->setHelpers(['Js']); 
     }
 
     public function index() {
