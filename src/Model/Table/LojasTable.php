@@ -11,8 +11,10 @@ use Cake\Validation\Validator;
 /**
  * Lojas Model
  *
+ * @property \App\Model\Table\EnderecosTable&\Cake\ORM\Association\BelongsTo $Enderecos
+ * @property \App\Model\Table\EnderecosTable&\Cake\ORM\Association\HasMany $Enderecos
  * @property \App\Model\Table\ProdutosTable&\Cake\ORM\Association\HasMany $Produtos
- * @property \App\Model\Table\UsuariosTable&\Cake\ORM\Association\BelongsToMany $Usuarios
+ * @property \App\Model\Table\TelefonesTable&\Cake\ORM\Association\HasMany $Telefones
  *
  * @method \App\Model\Entity\Loja newEmptyEntity()
  * @method \App\Model\Entity\Loja newEntity(array $data, array $options = [])
@@ -55,11 +57,6 @@ class LojasTable extends Table
         ]);
         $this->hasMany('Telefones', [
             'foreignKey' => 'loja_id',
-        ]);
-        $this->belongsToMany('Usuarios', [
-            'foreignKey' => 'loja_id',
-            'targetForeignKey' => 'usuario_id',
-            'joinTable' => 'usuarios_lojas',
         ]);
     }
 

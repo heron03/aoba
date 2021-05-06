@@ -33,7 +33,7 @@ class LojasController extends AppController
     public function view($id = null)
     {
         $loja = $this->Lojas->get($id, [
-            'contain' => ['Usuarios', 'Endereco', 'Produtos', 'Telefone'],
+            'contain' => ['Enderecos', 'Produtos', 'Telefones'],
         ]);
 
         $this->set(compact('loja'));
@@ -56,8 +56,7 @@ class LojasController extends AppController
             }
             $this->Flash->error(__('The loja could not be saved. Please, try again.'));
         }
-        $usuarios = $this->Lojas->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('loja', 'usuarios'));
+        $this->set(compact('loja'));
     }
 
     /**
@@ -70,7 +69,7 @@ class LojasController extends AppController
     public function edit($id = null)
     {
         $loja = $this->Lojas->get($id, [
-            'contain' => ['Usuarios'],
+            'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
@@ -81,8 +80,7 @@ class LojasController extends AppController
             }
             $this->Flash->error(__('The loja could not be saved. Please, try again.'));
         }
-        $usuarios = $this->Lojas->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('loja', 'usuarios'));
+        $this->set(compact('loja'));
     }
 
     /**

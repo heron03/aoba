@@ -25,10 +25,8 @@ class UsuariosTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Usuarios',
-        'app.Aros',
-        'app.Endereco',
-        'app.Telefone',
-        'app.Lojas',
+        'app.Enderecos',
+        'app.Telefones',
     ];
 
     /**
@@ -61,16 +59,6 @@ class UsuariosTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -15,10 +15,9 @@ use Cake\ORM\Entity;
  * @property string|null $site
  * @property string|null $email
  *
- * @property \App\Model\Entity\Endereco[] $endereco
+ * @property \App\Model\Entity\Endereco[] $enderecos
  * @property \App\Model\Entity\Produto[] $produtos
- * @property \App\Model\Entity\Telefone[] $telefone
- * @property \App\Model\Entity\Usuario[] $usuarios
+ * @property \App\Model\Entity\Telefone[] $telefones
  */
 class Loja extends Entity
 {
@@ -37,9 +36,8 @@ class Loja extends Entity
         'endereco_id' => true,
         'site' => true,
         'email' => true,
-        'endereco' => true,
+        'enderecos' => true,
         'produtos' => true,
-        'telefone' => true,
-        'usuarios' => true,
+        'telefones' => true,
     ];
 }

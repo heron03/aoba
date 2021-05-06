@@ -11,10 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Usuarios Model
  *
- * @property \App\Model\Table\ArosTable&\Cake\ORM\Association\BelongsTo $Aros
- * @property \App\Model\Table\EnderecoTable&\Cake\ORM\Association\HasMany $Endereco
- * @property \App\Model\Table\TelefoneTable&\Cake\ORM\Association\HasMany $Telefone
- * @property \App\Model\Table\LojasTable&\Cake\ORM\Association\BelongsToMany $Lojas
+ * @property \App\Model\Table\EnderecosTable&\Cake\ORM\Association\HasMany $Enderecos
+ * @property \App\Model\Table\TelefonesTable&\Cake\ORM\Association\HasMany $Telefones
  *
  * @method \App\Model\Entity\Usuario newEmptyEntity()
  * @method \App\Model\Entity\Usuario newEntity(array $data, array $options = [])
@@ -46,19 +44,11 @@ class UsuariosTable extends Table
         $this->setDisplayField('id_usuarios');
         $this->setPrimaryKey('id_usuarios');
 
-        $this->belongsTo('Aros', [
-            'foreignKey' => 'aro_id',
-        ]);
-        $this->hasMany('Endereco', [
+        $this->hasMany('Enderecos', [
             'foreignKey' => 'usuario_id',
         ]);
-        $this->hasMany('Telefone', [
+        $this->hasMany('Telefones', [
             'foreignKey' => 'usuario_id',
-        ]);
-        $this->belongsToMany('Lojas', [
-            'foreignKey' => 'usuario_id',
-            'targetForeignKey' => 'loja_id',
-            'joinTable' => 'usuarios_lojas',
         ]);
     }
 
@@ -89,19 +79,5 @@ class UsuariosTable extends Table
             ->allowEmptyString('senha');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
-        $rules->add($rules->existsIn(['aro_id'], 'Aros'), ['errorField' => 'aro_id']);
-
-        return $rules;
     }
 }

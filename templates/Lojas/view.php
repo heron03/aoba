@@ -44,29 +44,37 @@
                 </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Usuarios') ?></h4>
-                <?php if (!empty($loja->usuarios)) : ?>
+                <h4><?= __('Related Enderecos') ?></h4>
+                <?php if (!empty($loja->enderecos)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id Usuarios') ?></th>
-                            <th><?= __('Aro Id') ?></th>
-                            <th><?= __('Nome') ?></th>
-                            <th><?= __('Email') ?></th>
-                            <th><?= __('Senha') ?></th>
+                            <th><?= __('Id Endereco') ?></th>
+                            <th><?= __('Lougradouro') ?></th>
+                            <th><?= __('Cep') ?></th>
+                            <th><?= __('Numero') ?></th>
+                            <th><?= __('Cidade') ?></th>
+                            <th><?= __('Bairro') ?></th>
+                            <th><?= __('Loja Id') ?></th>
+                            <th><?= __('Usuario Id') ?></th>
+                            <th><?= __('Estado Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
-                        <?php foreach ($loja->usuarios as $usuarios) : ?>
+                        <?php foreach ($loja->enderecos as $enderecos) : ?>
                         <tr>
-                            <td><?= h($usuarios->id_usuarios) ?></td>
-                            <td><?= h($usuarios->aro_id) ?></td>
-                            <td><?= h($usuarios->nome) ?></td>
-                            <td><?= h($usuarios->email) ?></td>
-                            <td><?= h($usuarios->senha) ?></td>
+                            <td><?= h($enderecos->id_endereco) ?></td>
+                            <td><?= h($enderecos->lougradouro) ?></td>
+                            <td><?= h($enderecos->cep) ?></td>
+                            <td><?= h($enderecos->numero) ?></td>
+                            <td><?= h($enderecos->cidade) ?></td>
+                            <td><?= h($enderecos->bairro) ?></td>
+                            <td><?= h($enderecos->loja_id) ?></td>
+                            <td><?= h($enderecos->usuario_id) ?></td>
+                            <td><?= h($enderecos->estado_id) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Usuarios', 'action' => 'view', $usuarios->id_usuarios]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Usuarios', 'action' => 'edit', $usuarios->id_usuarios]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Usuarios', 'action' => 'delete', $usuarios->id_usuarios], ['confirm' => __('Are you sure you want to delete # {0}?', $usuarios->id_usuarios)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'Enderecos', 'action' => 'view', $enderecos->id_endereco]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Enderecos', 'action' => 'edit', $enderecos->id_endereco]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Enderecos', 'action' => 'delete', $enderecos->id_endereco], ['confirm' => __('Are you sure you want to delete # {0}?', $enderecos->id_endereco)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -100,6 +108,35 @@
                                 <?= $this->Html->link(__('View'), ['controller' => 'Produtos', 'action' => 'view', $produtos->id_produtos]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Produtos', 'action' => 'edit', $produtos->id_produtos]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Produtos', 'action' => 'delete', $produtos->id_produtos], ['confirm' => __('Are you sure you want to delete # {0}?', $produtos->id_produtos)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
+                <h4><?= __('Related Telefones') ?></h4>
+                <?php if (!empty($loja->telefones)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id Telefone') ?></th>
+                            <th><?= __('Numero') ?></th>
+                            <th><?= __('Loja Id') ?></th>
+                            <th><?= __('Usuario Id') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($loja->telefones as $telefones) : ?>
+                        <tr>
+                            <td><?= h($telefones->id_telefone) ?></td>
+                            <td><?= h($telefones->numero) ?></td>
+                            <td><?= h($telefones->loja_id) ?></td>
+                            <td><?= h($telefones->usuario_id) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Telefones', 'action' => 'view', $telefones->id_telefone]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Telefones', 'action' => 'edit', $telefones->id_telefone]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Telefones', 'action' => 'delete', $telefones->id_telefone], ['confirm' => __('Are you sure you want to delete # {0}?', $telefones->id_telefone)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
