@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $id_estado
  * @property string|null $nome
  *
- * @property \App\Model\Entity\Endereco[] $endereco
+ * @property \App\Model\Entity\Endereco[] $enderecos
  */
 class Estado extends Entity
 {
@@ -26,6 +26,6 @@ class Estado extends Entity
      */
     protected $_accessible = [
         'nome' => true,
-        'endereco' => true,
+        'enderecos' => true,
     ];
 }

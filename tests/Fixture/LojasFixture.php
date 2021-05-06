@@ -28,7 +28,7 @@ class LojasFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id_loja'], 'length' => []],
-            'lojas_ibfk_1' => ['type' => 'foreign', 'columns' => ['endereco_id'], 'references' => ['endereco', 'id_endereco'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'lojas_ibfk_1' => ['type' => 'foreign', 'columns' => ['endereco_id'], 'references' => ['enderecos', 'id_endereco'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

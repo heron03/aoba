@@ -43,8 +43,8 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->viewBuilder()->setLayout('bootstrap');
-        $this->viewBuilder()->setHelpers(['Js']); 
+        // $this->viewBuilder()->setLayout('bootstrap');
+        // $this->viewBuilder()->setHelpers(['Js']);
     }
 
     public function index() {
@@ -93,7 +93,7 @@ class AppController extends Controller
         $this->Flash->bootstrap('Excluído com sucesso!', array('key' => 'warning'));
         $this->redirect(['action' => 'index']);
     }
-    
+
     public function getControllerName() {
         return \Cake\Utility\Inflector::underscore($this->request->getParam('controller'));
     }
