@@ -1,7 +1,7 @@
 <?php
 $this->extend('/Common/form');
 
-$this->assign('title', 'Novo Produto');
+$this->assign('title', 'Editar Produto');
 
 $formFields = $this->element('formCreate');
 $formFields .= $this->Form->hidden('id_produtos');

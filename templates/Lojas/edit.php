@@ -1,7 +1,7 @@
 <?php
 $this->extend('/Common/form');
 
-$this->assign('title', 'Novo Lojas');
+$this->assign('title', 'Editar Lojas');
 
 $formFields = $this->element('formCreate');
 $formFields .= $this->Form->hidden('id_loja');
