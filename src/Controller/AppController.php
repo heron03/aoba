@@ -28,30 +28,6 @@ class AppController extends Controller
         }        
     }
 
-    public function add() {
-        $entity = $this->{$this->getModelName()}->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $entity = $this->{$this->getModelName()}->patchEnity($entity, $this->request->getData());
-            if ($this->{$this->getModelName()}->save($entity)) {
-                $this->Flash->bootstrap('Gravado com sucesso!', array('key' => 'success'));
-                $this->redirect(['action' => 'index']);
-            }
-        }
-        $this->set(compact('entity'));
-    }
-
-    public function edit($id = null) {
-        $entity = $this->getEditEntity($id);
-        if ($this->request->is(['post', 'patch', 'put'])) {
-            $entity = $this->{$this->getModelName()}->patchEnity($entity, $this->request->getData());
-            if ($this->{$this->getModelName()}->save($entity)) {
-                $this->Flash->bootstrap('Alterado com sucesso!', array('key' => 'success'));
-                $this->redirect(['action' => 'index']);
-            }
-        }
-        $this->set(compact('entity'));
-    }
-
     public function view($id = null) {
         $entity = $this->getEditEntity($id);
         $this->set(compact('entity'));
