@@ -6,15 +6,15 @@ $this->assign('title', 'Editar Lojas');
 $formFields = $this->element('formCreate');
 $formFields .= $this->Form->hidden('id_loja');
 $formFields .= $this->Html->div('form-row',
-    $this->Form->input('nome', array(
+    $this->Form->control('nome', array(
         'div' => array('class' => 'form-group col-md-6'),
     )) .
-    $this->Form->input('cnpj', array(
+    $this->Form->control('cnpj', array(
         'div' => array('class' => 'form-group col-md-6'),
     ))
 );
 
-$formFields .= $this->Form->input('nome', array(
+$formFields .= $this->Form->control('nome', array(
         'type' => 'text',
         'label' => array('text' => 'Nome'),
         'required' => false,
@@ -23,7 +23,7 @@ $formFields .= $this->Form->input('nome', array(
         'disabled' => false,
         'error' => array('attributes' => array('class' => 'invalid-feedback'))
     )) .
-    $this->Form->input('cnpj', array(
+    $this->Form->control('cnpj', array(
         'type' => 'text',
         'label' => array('text' => 'CNPJ'),
         'required' => false,

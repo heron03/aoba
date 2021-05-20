@@ -5,10 +5,10 @@ $this->assign('title', 'Visualizar Lojas');
 
 $formFields = $this->element('formCreate');
 $formFields .= $this->Html->div('form-row',
-    $this->Form->input('nome', array(
+    $this->Form->control('nome', array(
         'div' => array('class' => 'form-group col-md-6'),
     )) .
-    $this->Form->input('cnpj', array(
+    $this->Form->control('cnpj', array(
         'div' => array('class' => 'form-group col-md-6'),
     ))
 );

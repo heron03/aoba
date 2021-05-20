@@ -5,13 +5,13 @@ $this->assign('title', 'Novo Produto');
 
 $formFields = $this->element('formCreate');
 $formFields .= $this->Html->div('form-row',
-    $this->Form->input('nome', array(
+    $this->Form->control('nome', array(
         'div' => array('class' => 'form-group col-md-6'),
     )) .
-    $this->Form->input('valor', array(
+    $this->Form->control('valor', array(
         'div' => array('class' => 'form-group col-md-6'),
     )) .
-    $this->Form->input('descricao', array(
+    $this->Form->control('descricao', array(
         'div' => array('class' => 'form-group col-md-6'),
     ))
 );
