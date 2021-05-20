@@ -32,4 +32,36 @@ class LojasController extends AppController
       
         return $this->Lojas->get($id, compact('fields', 'contain'));
     }
+    
+    public function add()
+    {
+        $loja = $this->Lojas->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
+            if ($this->Lojas->save($loja)) {
+                $this->Flash->success(__('The loja has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The loja could not be saved. Please, try again.'));
+        }
+        $this->set(compact('loja'));
+    }
+
+    public function edit($id = null)
+    {
+        $loja = $this->Lojas->get($id, [
+            'contain' => [],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
+            if ($this->Lojas->save($loja)) {
+                $this->Flash->success(__('The loja has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The loja could not be saved. Please, try again.'));
+        }
+        $this->set(compact('loja'));
+    }
 }
