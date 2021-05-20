@@ -13,18 +13,18 @@ $searchFields = $this->Form->input('nome', array(
 
 $this->assign('searchFields', $searchFields);
 
-$titulos = array('Nome', 'Avaliação', '');
+$titulos = array('Nome', 'Valor', '');
 $tableHeaders = $this->Html->tableHeaders($titulos);
 $this->assign('tableHeaders', $tableHeaders);
 
 $detalhe = array();
 foreach ($produtos as $produto) {
-    $editLink = $this->Html->link(__('Alterar'), ['action' =>'edit', $produto->id], ['update' => '#content']);
-    $deleteLink = $this->Form->postLink(__('Excluir'), ['action' => 'delete', $produto->id], ['update' => '#content', 'confirm' => __('Tem certeza?')]);
-    $viewLink = $this->Html->link($produto->nome, ['action' => 'view', $produto->id], ['update' => '#content']);
+    $editLink = $this->Html->link(__('Alterar'), ['action' =>'edit', $produto->id_produtos], ['update' => '#content']);
+    $deleteLink = $this->Form->postLink(__('Excluir'), ['action' => 'delete', $produto->id_produtos], ['update' => '#content', 'confirm' => __('Tem certeza?')]);
+    $viewLink = $this->Html->link($produto->nome, ['action' => 'view', $produto->id_produtos], ['update' => '#content']);
     $detalhe[] = [
         $viewLink, 
-        (string)$produto->avaliacao,
+        (string)$produto->valor,
         $editLink . ' ' . $deleteLink
     ];
 }
